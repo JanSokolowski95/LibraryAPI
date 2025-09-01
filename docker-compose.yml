@@ -2,7 +2,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: Dockerfile.api
+      dockerfile: docker_files/Dockerfile.api
     ports:
     - "8000:8000"
     environment:
@@ -14,7 +14,7 @@ services:
   ui:
     build:
       context: .
-      dockerfile: Dockerfile.streamlit
+      dockerfile: docker_files/Dockerfile.streamlit
     ports:
     - "8501:8501"
     environment:
