@@ -2,7 +2,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
-from database import SessionLocal, Book
+from src.database import SessionLocal, Book
 
 
 # Pydantic models for request/response validation

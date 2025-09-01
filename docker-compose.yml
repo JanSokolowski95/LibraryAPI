@@ -5,10 +5,14 @@ services:
       dockerfile: docker_files/Dockerfile.api
     ports:
     - "8000:8000"
+    volumes:
+    - .:/app
     environment:
     - DATABASE_URL=postgresql://user:password@db:5432/dbname
     depends_on:
     - db
+    cap_drop:
+    - ALL
     restart: always
 
   ui:
@@ -17,10 +21,14 @@ services:
       dockerfile: docker_files/Dockerfile.streamlit
     ports:
     - "8501:8501"
+    volumes:
+    - .:/app
     environment:
     - DATABASE_URL=postgresql://user:password@db:5432/dbname
     depends_on:
     - api
+    cap_drop:
+    - ALL
     restart: always
 
   db:
